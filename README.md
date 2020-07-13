@@ -17,7 +17,7 @@ php flarum cache:clear
 
 ## License
 
-Distributed under the MIT license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See `LICENSE` for more information.
 
 ## Contributing
 
@@ -25,3 +25,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 2. Commit your changes
 3. Push to the branch
 4. Create a new Pull Request
+
+## Credits
+
+- [Minotar.net](https://minotar.net/) API
