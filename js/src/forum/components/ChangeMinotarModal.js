@@ -17,7 +17,7 @@ export default class ChangeMinotarModal extends Modal {
     }
 
     content() {
-        if(this.success) {
+        if (this.success) {
             return (
                 <div className="Modal-body">
                     <div className="Form Form--centered">

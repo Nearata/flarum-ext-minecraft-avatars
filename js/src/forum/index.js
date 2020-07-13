@@ -36,7 +36,7 @@ app.initializers.add('nearata/flarum-ext-minecraft-avatars', function() {
   extend(AvatarEditor.prototype, 'controlItems', items => {
     const avatarUrl = app.session.user.avatarUrl();
 
-    if(avatarUrl && avatarUrl.startsWith(minotarUrl)) {
+    if (avatarUrl && avatarUrl.startsWith(minotarUrl)) {
       items.remove('remove');
     }
   });
