@@ -1,0 +1,41 @@
+{
+    "name": "nearata/flarum-ext-minecraft-avatars",
+    "description": "Allow users to use the head of a Minecraft skin as avatar (Minotar.net API)",
+    "keywords": [
+        "flarum",
+        "minecraft",
+        "avatar",
+        "minotar"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^0.1.0-beta.13"
+    },
+    "authors": [
+        {
+            "name": "Nearata",
+            "email": "williamdicicco@protonmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nearata\\MinecraftAvatars\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Minecraft Avatars",
+            "icon": {
+                "image": "icon.png",
+                "backgroundColor": "transparent",
+                "backgroundSize": "cover",
+                "backgroundPosition": "center"
+            }
+        },
+        "flagrow": {
+            "discuss": ""
+        }
+    }
+}
