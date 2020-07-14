@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Translations
   - `use_button`
 
-## Changed
+### Changed
 
 - UI
   - Moved the `Minecraft Avatars` button from `SettingsPage` to `AvatarEditor`
@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Translations
   - `title` from `Change Minecraft Avatar` to `Minecraft Avatars`
 
-## Removed
+### Removed
 
 - Translations
   - `note`
