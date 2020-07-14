@@ -55,9 +55,6 @@ export default class ChangeMinotarModal extends Modal {
                             children: app.translator.trans('nearata-minecraft-avatars.forum.submit_button'),
                         })}
                     </div>
-                    <small>
-                        {app.translator.trans('nearata-minecraft-avatars.forum.note')}
-                    </small>
                 </div>
             </div>
         );
