@@ -28,9 +28,8 @@ app.initializers.add('nearata/flarum-ext-minecraft-avatars', function () {
             'changeMinecraftAvatar',
             Button.component({
                 icon: 'fas fa-cloud-upload-alt',
-                children: minotar ? changeButton : useButton,
-                onclick: () => app.modal.show(new ChangeMinotarModal())
-            }),
+                onclick: () => app.modal.show(ChangeMinotarModal)
+            }, minotar ? changeButton : useButton),
             1
         );
 
@@ -51,8 +50,8 @@ app.initializers.add('nearata/flarum-ext-minecraft-avatars', function () {
     });
 
     extend(AvatarEditor.prototype, 'remove', function() {
-        const minotar = this.props.user.attribute('minotar');
-        
+        const minotar = this.attrs.user.attribute('minotar');
+
         if (minotar) {
             app.session.user.save({
                 minotar: ''
