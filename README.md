@@ -1,6 +1,6 @@
 # Minecraft Avatars
 
-> A [Flarum](https://flarum.org) extension that allow users to use the head of a Minecraft skin as avatar (Minotar.net API)
+> A [Flarum](https://flarum.org) extension that allow users to use the head of a Minecraft skin as avatar.
 
 ![Preview](Screenshot.png)
 
@@ -37,4 +37,4 @@ Distributed under the MIT license. See `LICENSE` for more information.
 
 ## Credits
 
-- [Minotar.net](https://minotar.net/) API
+- [Crafatar](https://crafatar.com/) API
