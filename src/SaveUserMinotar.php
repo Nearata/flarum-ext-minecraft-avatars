@@ -1,9 +1,8 @@
 <?php
 
-namespace Nearata\MinecraftAvatars\Listeners;
+namespace Nearata\MinecraftAvatars;
 
 use Flarum\Foundation\ValidationException;
-use Flarum\Locale\Translator;
 use Flarum\User\Event\Saving;
 
 use Illuminate\Support\Arr;
@@ -15,18 +14,16 @@ class SaveUserMinotar
         if (Arr::has($event->data, 'attributes.minotar')) {
             $minotar = Arr::get($event->data, 'attributes.minotar');
 
-            $validUsernameRegex = '[a-zA-Z0-9_]{1,16}';
             $validUUIDPlainRegex = '[0-9a-f]{32}';
             $validUUIDDashRegex = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
 
             $validUUIDRegex = '(' . $validUUIDPlainRegex . '|' . $validUUIDDashRegex . ')';
-            $validUsernameOrUUIDRegex = '(' . $validUUIDRegex . '|' . $validUsernameRegex . ')';
 
             if (strlen($minotar) === 0) {
                 $minotar = null;
-            } else if (strlen($minotar) > 0 && !preg_match('/^' . $validUsernameOrUUIDRegex . '$/', $minotar)) {
+            } else if (strlen($minotar) > 0 && !preg_match('/^' . $validUUIDRegex . '$/', $minotar)) {
                 throw new ValidationException([
-                    'minotar' => app(Translator::class)->trans('nearata-minecraft-avatars.forum.username_uuid_not_valid')
+                    'minotar' => app('translator')->trans('nearata-minecraft-avatars.forum.username_uuid_not_valid')
                 ]);
             }
 

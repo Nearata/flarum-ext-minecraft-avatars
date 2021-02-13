@@ -11,7 +11,7 @@ export default class ChangeMinotarModal extends Modal {
     }
 
     className() {
-        return 'ChangeMinecraftAvatarModal Modal--small';
+        return 'NearataMinecraftAvatarsModal Modal--small';
     }
 
     title() {
@@ -51,6 +51,15 @@ export default class ChangeMinotarModal extends Modal {
                             }, app.translator.trans('nearata-minecraft-avatars.forum.submit_button'))
                         ])
                     ]
+                ])
+            ]),
+            m('.Modal-footer', [
+                m('span', [
+                    'Powered by ',
+                    m('a', {
+                        href: 'https://crafatar.com/',
+                        target: '_blank'
+                    }, 'Crafatar')
                 ])
             ])
         ]
