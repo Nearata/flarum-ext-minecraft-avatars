@@ -2,15 +2,17 @@
 
 > A [Flarum](https://flarum.org) extension that allow users to use the head of a Minecraft skin as avatar.
 
-![Preview](Screenshot.png)
+## Preview
 
-## Installation
+![Preview](https://i.imgur.com/u0OoVVr.png)
+
+## Install
 
 ```sh
 composer require nearata/flarum-ext-minecraft-avatars
 ```
 
-## Updating
+## Update
 
 ```sh
 composer update nearata/flarum-ext-minecraft-avatars
@@ -26,7 +28,7 @@ php flarum cache:clear
 
 ## License
 
-Distributed under the MIT license. See `LICENSE` for more information.
+Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 
 ## Contributing
 
