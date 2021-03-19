@@ -1,6 +1,6 @@
 {
     "name": "nearata/flarum-ext-minecraft-avatars",
-    "description": "Allow users to use the head of a Minecraft skin as avatar (Minotar.net API)",
+    "description": "Allow users to use the head of a Minecraft skin as avatar.",
     "keywords": [
         "flarum",
         "minecraft",
@@ -15,7 +15,8 @@
         "forum": "https://discuss.flarum.org/d/24468"
     },
     "require": {
-        "flarum/core": "^0.1.0-beta.15"
+        "flarum/core": ">=0.1.0-beta.16 <=0.1.0",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "authors": [
         {
@@ -32,6 +33,7 @@
     "extra": {
         "flarum-extension": {
             "title": "Minecraft Avatars",
+            "category": "feature",
             "icon": {
                 "image": "icon.png",
                 "backgroundColor": "transparent",

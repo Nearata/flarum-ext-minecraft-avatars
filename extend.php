@@ -15,5 +15,5 @@ return [
             return $user->minotar;
         }),
     (new Extend\Event)
-        ->listen(Saving::class, SaveUserMinotar::class)
+        ->listen(Saving::class, SaveMinecraftAvatar::class)
 ];

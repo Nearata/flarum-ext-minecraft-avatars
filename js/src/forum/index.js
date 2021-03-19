@@ -1,12 +1,12 @@
-import app from 'flarum/app';
-import { extend, override } from 'flarum/extend';
-import AvatarEditor from 'flarum/components/AvatarEditor'
-import Button from 'flarum/components/Button';
-import User from 'flarum/models/User';
+import { extend, override } from 'flarum/common/extend';
+import Button from 'flarum/common/components/Button';
+import User from 'flarum/common/models/User';
+import AvatarEditor from 'flarum/forum/components/AvatarEditor';
+
 import ChangeMinotarModal from './components/ChangeMinotarModal';
 
-app.initializers.add('nearata-minecraft-avatars', function () {
-    const minotarUrl = 'https://crafatar.com/';
+app.initializers.add('nearata-minecraft-avatars', app => {
+    const minotarUrl = 'https://crafatar.com';
 
     User.prototype.avatarUrl = function () {
         const avatarUrl = this.attribute('avatarUrl');
