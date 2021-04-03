@@ -50,9 +50,6 @@ class SaveMinecraftAvatar
             ]);
         }
 
-        $user = $event->user;
-
-        $user->minotar = $uuid;
-        $user->save();
+        $event->user->minotar = $uuid;
     }
 }
