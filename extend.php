@@ -15,5 +15,7 @@ return [
             return $user->minotar;
         }),
     (new Extend\Event)
-        ->listen(Saving::class, SaveMinecraftAvatar::class)
+        ->listen(Saving::class, SaveMinecraftAvatar::class),
+    (new Extend\Console())
+        ->command(MigrateCommand::class)
 ];
