@@ -39,10 +39,4 @@ class MigrateCommand extends AbstractCommand
 
         $this->info('Migration Complete.');
     }
-
-    private function isUsername(string $minotar): bool
-    {
-        $regex = '/^[a-zA-Z0-9_]{1,16}$/';
-        return preg_match($regex, $minotar);
-    }
 }
