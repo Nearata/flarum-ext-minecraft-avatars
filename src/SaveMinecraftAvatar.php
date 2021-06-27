@@ -8,9 +8,17 @@ use Flarum\User\Event\Saving;
 use Illuminate\Support\Arr;
 
 use Nearata\MinecraftAvatars\Helpers;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class SaveMinecraftAvatar
 {
+    protected $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     public function handle(Saving $event)
     {
         if (!Arr::has($event->data, 'attributes.minotar')) {
@@ -30,7 +38,7 @@ class SaveMinecraftAvatar
 
             if (empty($uuid)) {
                 throw new ValidationException([
-                    'nearataMinecraftAvatars' => app('translator')->trans('nearata-minecraft-avatars.forum.username_not_found')
+                    'nearataMinecraftAvatars' => $this->translator->trans('nearata-minecraft-avatars.forum.username_not_found')
                 ]);
             }
         } else if (preg_match($validUUIDRegex, $minotar)) {
@@ -39,7 +47,7 @@ class SaveMinecraftAvatar
             $uuid = null;
         } else {
             throw new ValidationException([
-                'nearataMinecraftAvatars' => app('translator')->trans('nearata-minecraft-avatars.forum.username_uuid_not_valid')
+                'nearataMinecraftAvatars' => $this->translator->trans('nearata-minecraft-avatars.forum.username_uuid_not_valid')
             ]);
         }
 

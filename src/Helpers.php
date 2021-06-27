@@ -2,7 +2,7 @@
 
 namespace Nearata\MinecraftAvatars;
 
-use GuzzleHttp\Client as Client;
+use Illuminate\Http\Client\Factory;
 
 class Helpers
 {
@@ -12,16 +12,14 @@ class Helpers
         return preg_match($validUsernameRegex, $minotar);
     }
 
-    public static function getUUID(string $minotar): string
+    public static function getUUID(string $username): string
     {
-        $client = new Client(['base_uri' => 'https://api.mojang.com/users/profiles/minecraft/']);
-        $response = $client->request('GET', $minotar);
-        $statusCode = $response->getStatusCode();
+        $response = (new Factory())->get('https://api.mojang.com/users/profiles/minecraft/' . $username);
 
-        if ($statusCode === 204) {
+        if ($response->status() === 204) {
             return '';
         }
 
-        return json_decode($response->getBody())->id;
+        return $response->json('id');
     }
 }

@@ -1,11 +1,12 @@
 import { extend, override } from 'flarum/common/extend';
+import app from 'flarum/forum/app';
 import Button from 'flarum/common/components/Button';
 import User from 'flarum/common/models/User';
 import AvatarEditor from 'flarum/forum/components/AvatarEditor';
 
 import ChangeMinotarModal from './components/ChangeMinotarModal';
 
-app.initializers.add('nearata-minecraft-avatars', app => {
+app.initializers.add('nearata-minecraft-avatars', () => {
     const minotarUrl = 'https://crafatar.com';
 
     User.prototype.avatarUrl = function () {
@@ -35,10 +36,10 @@ app.initializers.add('nearata-minecraft-avatars', app => {
 
         const avatarUrl = app.session.user.avatarUrl();
         if (avatarUrl) {
-            if (!avatarUrl.startsWith(minotarUrl)) {
-                items.remove('nearataMinecraftAvatars');
-            } else {
+            if (avatarUrl.startsWith(minotarUrl)) {
                 items.remove('upload');
+            } else {
+                items.remove('nearataMinecraftAvatars');
             }
         } else {
             items.remove('remove');

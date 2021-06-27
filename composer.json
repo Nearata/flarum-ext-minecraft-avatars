@@ -15,8 +15,9 @@
         "forum": "https://discuss.flarum.org/d/24468"
     },
     "require": {
-        "flarum/core": ">=0.1.0-beta.16 <=0.1.0",
-        "guzzlehttp/guzzle": "^7.0"
+        "flarum/core": "^1.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/http": "^8.0"
     },
     "authors": [
         {
@@ -40,9 +41,6 @@
                 "backgroundSize": "cover",
                 "backgroundPosition": "center"
             }
-        },
-        "flagrow": {
-            "discuss": ""
         }
     }
 }

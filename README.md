@@ -4,7 +4,7 @@
 
 ## Preview
 
-![Preview](https://i.imgur.com/u0OoVVr.png)
+![Images](https://i.imgur.com/u0OoVVr.png)
 
 ## Install
 
@@ -26,17 +26,10 @@ composer remove nearata/flarum-ext-minecraft-avatars
 php flarum cache:clear
 ```
 
-## License
-
-Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
-
-## Contributing
-
-1. Fork it
-2. Commit your changes
-3. Push to the branch
-4. Create a new Pull Request
-
 ## Credits
 
 - [Crafatar](https://crafatar.com/) API
+
+## License
+
+Distributed under the MIT license. See [LICENSE](LICENSE) for details.

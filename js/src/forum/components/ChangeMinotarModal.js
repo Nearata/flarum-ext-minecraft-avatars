@@ -74,6 +74,7 @@ export default class ChangeMinotarModal extends Modal {
         }
 
         this.loading = true;
+        this.alertAttrs = null;
 
         app.session.user.save({
             minotar: this.minotar
