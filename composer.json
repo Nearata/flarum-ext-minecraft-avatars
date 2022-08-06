@@ -3,12 +3,10 @@
     "description": "Allow users to use the head of a Minecraft skin as avatar.",
     "keywords": [
         "flarum",
-        "minecraft",
-        "avatar",
-        "crafatar"
+        "minecraft"
     ],
     "type": "flarum-extension",
-    "license": "MIT",
+    "license": "Unlicense",
     "support": {
         "issues": "https://github.com/Nearata/flarum-ext-minecraft-avatars/issues",
         "source": "https://github.com/Nearata/flarum-ext-minecraft-avatars",
@@ -22,7 +20,7 @@
     "authors": [
         {
             "name": "Nearata",
-            "email": "williamdicicco@protonmail.com",
+            "email": "nearata@protonmail.com",
             "role": "Developer"
         }
     ],

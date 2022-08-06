@@ -1,7 +1,5 @@
 # Minecraft Avatars
 
-![supports](https://flarum-badge-api.davwheat.dev/v1/compat-latest/nearata/flarum-ext-minecraft-avatars)
-
 > A [Flarum](https://flarum.org) extension that allow users to use the head of a Minecraft skin as avatar.
 
 ## Preview
@@ -14,24 +12,9 @@
 composer require nearata/flarum-ext-minecraft-avatars
 ```
 
-## Update
-
-```sh
-composer update nearata/flarum-ext-minecraft-avatars
-php flarum cache:clear
-```
-
 ## Remove
 
 ```sh
 composer remove nearata/flarum-ext-minecraft-avatars
 php flarum cache:clear
 ```
-
-## Credits
-
-- [Crafatar](https://crafatar.com/) API
-
-## License
-
-Distributed under the MIT license. See [LICENSE](LICENSE) for details.
