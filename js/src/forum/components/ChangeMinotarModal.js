@@ -1,3 +1,4 @@
+import app from "flarum/forum/app";
 import Button from "flarum/common/components/Button";
 import Modal from "flarum/common/components/Modal";
 
@@ -5,10 +6,9 @@ export default class ChangeMinotarModal extends Modal {
     oninit(vnode) {
         super.oninit(vnode);
 
-        this.user = this.attrs.user
+        this.user = this.attrs.user;
 
         this.success = false;
-        this.oldMinotar = this.user.attribute("minotar");
         this.minotar = this.user.attribute("minotar");
     }
 
@@ -57,7 +57,9 @@ export default class ChangeMinotarModal extends Modal {
                                       type: "name",
                                       name: "minotar",
                                       class: "FormControl",
-                                      placeholder: this.oldMinotar || "Notch",
+                                      placeholder: app.translator.trans(
+                                          "nearata-minecraft-avatars.forum.placeholder"
+                                      ),
                                       oninput: (e) =>
                                           (this.minotar = e.target.value),
                                       disabled: this.loading,
@@ -99,7 +101,7 @@ export default class ChangeMinotarModal extends Modal {
     onsubmit(e) {
         e.preventDefault();
 
-        if (this.minotar === this.oldMinotar) {
+        if (this.minotar === this.user.attribute("minotar")) {
             this.hide();
             return;
         }
@@ -123,8 +125,8 @@ export default class ChangeMinotarModal extends Modal {
     }
 
     loaded() {
-        delete this.user.avatarColor
+        delete this.user.avatarColor;
 
-        super.loaded()
+        super.loaded();
     }
 }

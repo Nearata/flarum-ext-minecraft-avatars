@@ -4,10 +4,14 @@ namespace Nearata\MinecraftAvatars;
 
 use Flarum\Extend;
 use Flarum\Api\Serializer\BasicUserSerializer;
+use Flarum\User\Event\LoggedIn;
+use Flarum\User\Event\Registered;
 use Flarum\User\Event\Saving;
 use Flarum\User\User;
 
 return [
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__.'/js/dist/admin.js'),
     (new Extend\Frontend('forum'))
         ->js(__DIR__.'/js/dist/forum.js'),
 
@@ -19,8 +23,7 @@ return [
         }),
 
     (new Extend\Event)
-        ->listen(Saving::class, SaveMinecraftAvatar::class),
-
-    (new Extend\Console())
-        ->command(MigrateCommand::class)
+        ->listen(Saving::class, SaveMinecraftAvatar::class)
+        ->listen(LoggedIn::class, LoggedInListener::class)
+        ->listen(Registered::class, RegisteredListener::class),
 ];

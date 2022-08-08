@@ -1,4 +1,8 @@
 nearata-minecraft-avatars:
+  admin:
+    retrieve_avatar_on_registering:
+      label: Retrieve Avatar on Register
+      help: If no Minecraft Account exist, will be picked steve or alex as default.
   forum:
     avatar_changed: The avatar has been changed successfully.
     use_button: Use Minecraft Avatar
@@ -9,3 +13,4 @@ nearata-minecraft-avatars:
     submit_button: Save Changes
     username_uuid_not_valid: Username or uuid not valid.
     username_not_found: Username not found.
+    placeholder: Username or UUID

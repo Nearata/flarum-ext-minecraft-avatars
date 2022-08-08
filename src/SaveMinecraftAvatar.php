@@ -19,17 +19,13 @@ class SaveMinecraftAvatar
         $this->translator = $translator;
     }
 
-    public function handle(Saving $event)
+    public function handle(Saving $event): void
     {
         if (!Arr::has($event->data, 'attributes.minotar')) {
             return;
         }
 
         $minotar = Arr::get($event->data, 'attributes.minotar');
-
-        $validUUIDPlainRegex = '[0-9a-f]{32}';
-        $validUUIDDashRegex = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
-        $validUUIDRegex = '/^(' . $validUUIDPlainRegex . '|' . $validUUIDDashRegex . ')$/';
 
         $uuid = null;
 
@@ -41,10 +37,10 @@ class SaveMinecraftAvatar
                     'nearataMinecraftAvatars' => $this->translator->trans('nearata-minecraft-avatars.forum.username_not_found')
                 ]);
             }
-        } else if (preg_match($validUUIDRegex, $minotar)) {
+        } else if (Helpers::isUUID($minotar)) {
             $uuid = $minotar;
         } else if (strlen($minotar) === 0) {
-            $uuid = null;
+            $uuid = Helpers::getRandomUsername();
         } else {
             throw new ValidationException([
                 'nearataMinecraftAvatars' => $this->translator->trans('nearata-minecraft-avatars.forum.username_uuid_not_valid')

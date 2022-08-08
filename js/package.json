@@ -13,6 +13,7 @@
     "format": "prettier --write src"
   },
   "devDependencies": {
+    "@types/mithril": "^2.0.11",
     "flarum-tsconfig": "^1.0.0",
     "prettier": "^2.7.1"
   }
