@@ -1,10 +1,9 @@
-import { extend } from "flarum/common/extend";
-import app from "flarum/forum/app";
-import User from "flarum/common/models/User";
-import UserPage from "flarum/forum/components/UserPage";
-import LinkButton from "flarum/common/components/LinkButton";
-
 import MinecraftAvatarsPage from "./components/MinecraftAvatarsPage";
+import LinkButton from "flarum/common/components/LinkButton";
+import { extend } from "flarum/common/extend";
+import User from "flarum/common/models/User";
+import app from "flarum/forum/app";
+import UserPage from "flarum/forum/components/UserPage";
 
 app.initializers.add("nearata-minecraft-avatars", () => {
     app.routes.minecraftAvatars = {
