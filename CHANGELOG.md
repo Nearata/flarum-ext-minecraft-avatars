@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.1.0] - 2022-08-15
 
 - Replaced the command `mcmigrate` with an automated system.
 - Admin option to automatically set avatar on register if a Minecraft Account with such username exist, otherwise pick steve or alex as default. ([#10](https://github.com/Nearata/flarum-ext-minecraft-avatars/issues/10))
