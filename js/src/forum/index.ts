@@ -1,12 +1,17 @@
 import { extend } from "flarum/common/extend";
 import app from "flarum/forum/app";
-import Button from "flarum/common/components/Button";
 import User from "flarum/common/models/User";
-import AvatarEditor from "flarum/forum/components/AvatarEditor";
+import UserPage from "flarum/forum/components/UserPage";
+import LinkButton from "flarum/common/components/LinkButton";
 
-import ChangeMinotarModal from "./components/ChangeMinotarModal";
+import MinecraftAvatarsPage from "./components/MinecraftAvatarsPage";
 
 app.initializers.add("nearata-minecraft-avatars", () => {
+    app.routes.minecraftAvatars = {
+        path: "/minecraft-avatars",
+        component: MinecraftAvatarsPage,
+    };
+
     const baseUrl = "https://crafatar.com";
     const defaults = new Set(["MHF_Steve", "MHF_Alex"]);
     const nilUuid = "00000000-0000-0000-0000-000000000000";
@@ -17,7 +22,11 @@ app.initializers.add("nearata-minecraft-avatars", () => {
         let minotar: string | null = this.attribute("minotar");
         const avatar: string | null = this.attribute("avatarUrl");
 
-        if (!minotar || avatar) {
+        if (!minotar) {
+            return avatar;
+        }
+
+        if (!this.attribute("minotarEnabled")) {
             return avatar;
         }
 
@@ -40,64 +49,24 @@ app.initializers.add("nearata-minecraft-avatars", () => {
         return avatarUrl.toString();
     };
 
-    extend(AvatarEditor.prototype, "controlItems", function (items) {
-        const minotar: string | null = this.attrs.user.attribute("minotar");
-        const changeButton = app.translator.trans(
-            "nearata-minecraft-avatars.forum.change_button"
-        );
-        const useButton = app.translator.trans(
-            "nearata-minecraft-avatars.forum.use_button"
-        );
+    extend(UserPage.prototype, "navItems", function (items) {
+        if (app.session.user !== this.user) {
+            return;
+        }
 
         items.add(
             "nearataMinecraftAvatars",
             m(
-                Button,
+                LinkButton,
                 {
                     icon: "fas fa-cloud-upload-alt",
-                    onclick: () =>
-                        app.modal.show(ChangeMinotarModal, {
-                            user: this.attrs.user,
-                        }),
+                    href: app.route("minecraftAvatars"),
                 },
-                minotar ? changeButton : useButton
+                app.translator.trans(
+                    "nearata-minecraft-avatars.forum.userpage_nav_button"
+                )
             ),
             1
         );
-
-        const avatarUrl = this.attrs.user.avatarUrl();
-
-        if (avatarUrl === null) {
-            return;
-        }
-
-        const url = new URL(avatarUrl);
-
-        if (url.searchParams.has("default")) {
-            items.remove("remove");
-        }
-    });
-
-    extend(AvatarEditor.prototype, "remove", function () {
-        const minotar: string | null = this.attrs.user.attribute("minotar");
-
-        if (this.attrs.user.attribute("avatarUrl") != null) {
-            return;
-        }
-
-        if (minotar === null) {
-            return;
-        }
-
-        if (defaults.has(minotar)) {
-            return;
-        }
-
-        this.attrs.user
-            .save({
-                minotar: "",
-            })
-            // @ts-ignore
-            .then(this.success.bind(this), this.failure.bind(this));
     });
 });

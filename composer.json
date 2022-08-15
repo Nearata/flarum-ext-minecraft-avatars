@@ -14,7 +14,7 @@
     },
     "require": {
         "flarum/core": "^1.0",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^7.4",
         "illuminate/http": "^8.0"
     },
     "authors": [

@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Replaced the command `mcmigrate` with an automated system.
 - Admin option to automatically set avatar on register if a Minecraft Account with such username exist, otherwise pick steve or alex as default. ([#10](https://github.com/Nearata/flarum-ext-minecraft-avatars/issues/10))
+- Improved translations.
+- Replaced the Modal with a dedicated page on the User Page, with ability to toggle the Minecraft avatar. [#15](https://github.com/Nearata/flarum-ext-minecraft-avatars/issues/15)
 
 ## [2.0.0] - 2021-06-27
 
