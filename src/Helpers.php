@@ -20,7 +20,7 @@ class Helpers
     {
         $response = (new Factory())->get('https://api.mojang.com/users/profiles/minecraft/'.$username);
 
-        if ($response->status() === 204) {
+        if ($response->status() === 204 || ! $response->successful()) {
             return '';
         }
 
