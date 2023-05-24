@@ -6,6 +6,10 @@
 
 > Allow users to use the head of a Minecraft skin as avatar.
 
+## Screenshots
+
+See the [screenshots](screenshots) subfolder.
+
 ## Install
 
 ```sh
