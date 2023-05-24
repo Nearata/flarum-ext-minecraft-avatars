@@ -1,12 +1,16 @@
 <?php
 
-namespace Nearata\MinecraftAvatars;
+namespace Nearata\MinecraftAvatars\User\Listener;
 
 use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\User\Event\Registered;
+use Nearata\MinecraftAvatars\Helpers;
 
 class RegisteredListener
 {
+    /**
+     * @var SettingsRepositoryInterface
+     */
     protected $settings;
 
     public function __construct(SettingsRepositoryInterface $settings)

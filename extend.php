@@ -10,7 +10,10 @@ use Flarum\User\Event\LoggedIn;
 use Flarum\User\Event\Registered;
 use Flarum\User\Event\Saving;
 use Flarum\User\User;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Nearata\MinecraftAvatars\User\Listener\LoggedInListener;
+use Nearata\MinecraftAvatars\User\Listener\RegisteredListener;
+use Nearata\MinecraftAvatars\User\Listener\SavingListener;
+use Psr\Http\Message\ServerRequestInterface;
 
 return [
     (new Extend\Frontend('admin'))
@@ -18,7 +21,7 @@ return [
 
     (new Extend\Frontend('forum'))
         ->js(__DIR__.'/js/dist/forum.js')
-        ->route('/minecraft-avatars', 'nearata.minecraft-avatars', function (Document $document, Request $request) {
+        ->route('/minecraft-avatars', 'nearata.minecraft-avatars', function (Document $document, ServerRequestInterface $request) {
             RequestUtil::getActor($request)->assertRegistered();
             $document->title = 'Minecraft Avatars';
         }),
@@ -34,8 +37,10 @@ return [
         }),
 
     (new Extend\Event)
-        ->listen(Saving::class, SaveMinecraftAvatar::class)
+        ->listen(Saving::class, SavingListener::class)
         ->listen(LoggedIn::class, LoggedInListener::class)
-        ->listen(Registered::class, RegisteredListener::class)
-        ->listen(Saving::class, SaveMinotarEnabled::class),
+        ->listen(Registered::class, RegisteredListener::class),
+
+    (new Extend\Settings)
+        ->default('nearata-minecraft-avatars.retrieve_avatar_on_register', false)
 ];

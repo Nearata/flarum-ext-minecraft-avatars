@@ -1,8 +1,9 @@
 <?php
 
-namespace Nearata\MinecraftAvatars;
+namespace Nearata\MinecraftAvatars\User\Listener;
 
 use Flarum\User\Event\LoggedIn;
+use Nearata\MinecraftAvatars\Helpers;
 
 class LoggedInListener
 {
