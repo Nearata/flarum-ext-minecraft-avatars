@@ -2,7 +2,7 @@ nearata-minecraft-avatars:
   admin:
     retrieve_avatar_on_register:
       label: Retrieve Avatar on Register
-      help: If there's no Minecraft Account with such username, Steve or Alex as default skin.
+      help: "If there's no Minecraft Account with such username, Steve or Alex as default skin."
   forum:
     help_text: Username will be converted to UUID.
     submit_button: Save Changes

@@ -11,13 +11,10 @@ app.initializers.add("nearata-minecraft-avatars", () => {
     component: MinecraftAvatarsPage,
   };
 
-  const baseUrl = "https://crafatar.com";
-  const defaults = new Set(["MHF_Steve", "MHF_Alex"]);
-  const nilUuid = "00000000-0000-0000-0000-000000000000";
   const validate =
     /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|[0-9a-f]{8}[0-9a-f]{4}[1-5][0-9a-f]{3}[89ab][0-9a-f]{3}[0-9a-f]{12})$/i;
 
-  User.prototype.avatarUrl = function () {
+  User.prototype.avatarUrl = function (this: User) {
     let minotar: string | null = this.attribute("minotar");
     const avatar: string | null = this.attribute("avatarUrl");
 
@@ -29,18 +26,18 @@ app.initializers.add("nearata-minecraft-avatars", () => {
       return avatar;
     }
 
-    const avatarUrl = new URL(baseUrl + "/avatars/");
+    const avatarUrl = new URL("https://crafatar.com/avatars/");
 
     avatarUrl.searchParams.append("size", "64");
 
     if (!validate.test(minotar)) {
-      if (defaults.has(minotar)) {
+      if (["MHF_Steve", "MHF_Alex"].includes(minotar)) {
         avatarUrl.searchParams.append("default", minotar);
       } else {
         avatarUrl.searchParams.append("default", "MHF_Steve");
       }
 
-      minotar = nilUuid;
+      minotar = "00000000-0000-0000-0000-000000000000";
     }
 
     avatarUrl.pathname += minotar;
@@ -55,17 +52,14 @@ app.initializers.add("nearata-minecraft-avatars", () => {
 
     items.add(
       "nearataMinecraftAvatars",
-      m(
-        LinkButton,
-        {
-          icon: "fas fa-cloud-upload-alt",
-          href: app.route("minecraftAvatars"),
-        },
-        app.translator.trans(
+      <LinkButton
+        icon="fas fa-cloud-upload-alt"
+        href={app.route("minecraftAvatars")}
+      >
+        {app.translator.trans(
           "nearata-minecraft-avatars.forum.userpage_nav_button"
-        )
-      ),
-      1
+        )}
+      </LinkButton>
     );
   });
 });

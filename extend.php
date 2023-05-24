@@ -23,7 +23,7 @@ return [
             $document->title = 'Minecraft Avatars';
         }),
 
-    new Extend\Locales(__DIR__.'/resources/locale'),
+    new Extend\Locales(__DIR__.'/locale'),
 
     (new Extend\ApiSerializer(BasicUserSerializer::class))
         ->attributes(function (BasicUserSerializer $serializer, User $user, array $attributes) {
