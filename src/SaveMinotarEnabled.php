@@ -3,7 +3,6 @@
 namespace Nearata\MinecraftAvatars;
 
 use Flarum\User\Event\Saving;
-
 use Illuminate\Support\Arr;
 
 class SaveMinotarEnabled
@@ -14,13 +13,13 @@ class SaveMinotarEnabled
 
     public function handle(Saving $event): void
     {
-        if (!Arr::has($event->data, 'attributes.minotarEnabled')) {
+        if (! Arr::has($event->data, 'attributes.minotarEnabled')) {
             return;
         }
 
         $enabled = Arr::get($event->data, 'attributes.minotarEnabled');
 
-        if (!is_bool($enabled)) {
+        if (! is_bool($enabled)) {
             return;
         }
 

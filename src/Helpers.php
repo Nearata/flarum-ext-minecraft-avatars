@@ -12,12 +12,13 @@ class Helpers
     public static function isUsername(string $minotar): bool
     {
         $validUsernameRegex = '/^[a-zA-Z0-9_]{1,16}$/';
+
         return preg_match($validUsernameRegex, $minotar);
     }
 
     public static function getUUID(string $username): string
     {
-        $response = (new Factory())->get('https://api.mojang.com/users/profiles/minecraft/' . $username);
+        $response = (new Factory())->get('https://api.mojang.com/users/profiles/minecraft/'.$username);
 
         if ($response->status() === 204) {
             return '';
@@ -35,7 +36,7 @@ class Helpers
     {
         $validUUIDPlainRegex = '[0-9a-f]{32}';
         $validUUIDDashRegex = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
-        $validUUIDRegex = '/^(' . $validUUIDPlainRegex . '|' . $validUUIDDashRegex . ')$/';
+        $validUUIDRegex = '/^('.$validUUIDPlainRegex.'|'.$validUUIDDashRegex.')$/';
 
         return preg_match($validUUIDRegex, $minotar);
     }

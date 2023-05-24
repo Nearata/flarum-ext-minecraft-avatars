@@ -10,7 +10,7 @@ class LoggedInListener
     {
         $minotar = $event->user->minotar;
 
-        if (!is_null($minotar) && Helpers::isUUID($minotar)) {
+        if (! is_null($minotar) && Helpers::isUUID($minotar)) {
             return;
         }
 
@@ -18,7 +18,7 @@ class LoggedInListener
 
         if (is_null($minotar)) {
             $newMinotar = Helpers::getRandomUsername();
-        } else if (!in_array($minotar, Helpers::$usernames)) {
+        } elseif (! in_array($minotar, Helpers::$usernames)) {
             $uuid = Helpers::getUUID($minotar);
 
             if (empty($uuid)) {

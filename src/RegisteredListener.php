@@ -16,7 +16,7 @@ class RegisteredListener
 
     public function handle(Registered $event): void
     {
-        if (!$this->settings->get("nearata-minecraft-avatars.retrieve_avatar_on_register")) {
+        if (! $this->settings->get('nearata-minecraft-avatars.retrieve_avatar_on_register')) {
             return;
         }
 

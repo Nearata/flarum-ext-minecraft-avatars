@@ -13,9 +13,13 @@
         "forum": "https://discuss.flarum.org/d/24468"
     },
     "require": {
-        "flarum/core": "^1.0",
+        "php": "^8.0",
+        "flarum/core": "^1.7",
         "guzzlehttp/guzzle": "^7.4",
         "illuminate/http": "^8.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5.0"
     },
     "authors": [
         {
@@ -40,5 +44,8 @@
                 "backgroundPosition": "center"
             }
         }
+    },
+    "scripts": {
+        "format": "pint src"
     }
 }
